@@ -15,6 +15,6 @@ public class BloodTest {
     private Long id;
     @Column(name = "creation_date")
     private String creationDate;
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "blood_test")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "bloodTest")
     private List<Surveillance> surveillances;
 }

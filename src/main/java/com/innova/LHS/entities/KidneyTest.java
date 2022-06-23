@@ -14,6 +14,6 @@ public class KidneyTest {
     private String kidneyStage;
     @Column(name = "description")
     private String description;
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "kidney_test")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "kidneyTest")
     private List<Surveillance> surveillances;
 }

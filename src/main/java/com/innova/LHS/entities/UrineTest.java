@@ -13,6 +13,6 @@ public class UrineTest {
     private Long id;
     @Column(name = "creation_date")
     private LocalDate creationDate;
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "urine_test")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "urineTest")
     private List<Surveillance> surveillances;
 }
