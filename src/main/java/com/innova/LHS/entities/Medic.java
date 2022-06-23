@@ -3,6 +3,7 @@ package com.innova.LHS.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "medics")
@@ -21,6 +22,7 @@ public class Medic {
     private String cellphone;
     @Column(name = "address")
     private String address;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "medic")
+    private List<Surveillance> surveillances;
 
-    //TODO: list vigilancias
 }
