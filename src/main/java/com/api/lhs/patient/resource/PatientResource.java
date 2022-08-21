@@ -13,6 +13,7 @@ public class PatientResource {
     private String lastname;
     private Date birthday;
     private String gender;
+    private String email;
     private String phone;
     private String username;
     private String password;

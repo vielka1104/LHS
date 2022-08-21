@@ -3,6 +3,7 @@ package com.api.lhs.patient.resource;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -24,6 +25,12 @@ public class UpdatePatientResource {
 
     @NotNull
     private String gender;
+
+    @NotNull
+    @NotBlank
+    @Size(max=50)
+    @Email
+    private String email;
 
     @NotNull
     @NotBlank

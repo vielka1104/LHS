@@ -4,6 +4,7 @@ import com.api.lhs.shared.domain.model.AuditModel;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -34,6 +35,12 @@ public class Patient extends AuditModel {
 
     @NotNull
     private String gender;
+
+    @NotNull
+    @NotBlank
+    @Size(max=50)
+    @Email
+    private String email;
 
     @NotNull
     @NotBlank

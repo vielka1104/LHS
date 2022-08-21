@@ -37,6 +37,11 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public Patient getByEmail(String email) {
+        return patientRepository.findByEmail(email);
+    }
+
+    @Override
     public List<Patient> getByNameAndLastName(String name, String lastName) {
         return patientRepository.findByNameAndLastnameContaining(name, lastName);
     }
@@ -58,6 +63,7 @@ public class PatientServiceImpl implements PatientService {
                             .withLastname(request.getLastname())
                             .withBirthday(request.getBirthday())
                             .withGender(request.getGender())
+                            .withEmail(request.getEmail())
                             .withPhone(request.getPhone())
                             .withUsername(request.getUsername())
                             .withPassword(request.getPassword())
