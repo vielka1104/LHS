@@ -1,9 +1,8 @@
-package com.api.lhs.patient.domain.entity;
+package com.api.lhs.doctor.resource;
 
-import com.api.lhs.shared.domain.model.AuditModel;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -12,16 +11,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@With
-@Entity
-@Table(name = "patient", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"}),@UniqueConstraint(columnNames = {"phone"}),@UniqueConstraint(columnNames = {"email"})})
-public class Patient extends AuditModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class UpdateDoctorResource {
     @NotNull
     @NotBlank
     private String name;
@@ -35,6 +25,9 @@ public class Patient extends AuditModel {
 
     @NotNull
     private String gender;
+
+    @NotNull
+    private String address;
 
     @NotNull
     @NotBlank

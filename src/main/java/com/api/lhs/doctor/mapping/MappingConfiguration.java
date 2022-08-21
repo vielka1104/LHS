@@ -1,10 +1,10 @@
-package com.api.lhs.patient.mapping;
+package com.api.lhs.doctor.mapping;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration("patientMappingConfiguration")
+@Configuration("doctorMappingConfiguration")
 public class MappingConfiguration {
     @Bean
-    public PatientMapper patientMapper(){ return new PatientMapper(); }
+    public DoctorMapper doctorMapper() { return new DoctorMapper(); }
 }

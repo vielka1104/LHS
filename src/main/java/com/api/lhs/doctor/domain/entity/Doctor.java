@@ -1,4 +1,4 @@
-package com.api.lhs.patient.domain.entity;
+package com.api.lhs.doctor.domain.entity;
 
 import com.api.lhs.shared.domain.model.AuditModel;
 import lombok.*;
@@ -16,8 +16,8 @@ import java.util.Date;
 @AllArgsConstructor
 @With
 @Entity
-@Table(name = "patient", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"}),@UniqueConstraint(columnNames = {"phone"}),@UniqueConstraint(columnNames = {"email"})})
-public class Patient extends AuditModel {
+@Table(name = "doctor", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"}),@UniqueConstraint(columnNames = {"phone"}),@UniqueConstraint(columnNames = {"email"})})
+public class Doctor extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,6 +35,9 @@ public class Patient extends AuditModel {
 
     @NotNull
     private String gender;
+
+    @NotNull
+    private String address;
 
     @NotNull
     @NotBlank
