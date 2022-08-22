@@ -1,8 +1,9 @@
 package com.api.lhs.appointment.resource;
 
+import com.api.lhs.admin.resource.AdminResource;
 import com.api.lhs.appointment.domain.entity.Status;
-import com.api.lhs.doctor.domain.entity.Doctor;
-import com.api.lhs.patient.domain.entity.Patient;
+import com.api.lhs.doctor.resource.DoctorResource;
+import com.api.lhs.patient.resource.PatientResource;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ public class AppointmentResource {
     private Long id;
     private String notes;
     private Status status;
-    private Patient patient;
-    private Doctor doctor;
+    private PatientResource patient;
+    private DoctorResource doctor;
+    private AdminResource admin;
 }
