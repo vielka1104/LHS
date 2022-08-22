@@ -5,6 +5,7 @@ import com.api.lhs.doctor.domain.persistence.DoctorRepository;
 import com.api.lhs.doctor.domain.service.DoctorService;
 import com.api.lhs.shared.exception.ResourceNotFoundException;
 import com.api.lhs.shared.exception.ResourceValidationException;
+import com.api.lhs.specialty.domain.persistence.SpecialtyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,11 @@ import java.util.List;
 @Service
 public class DoctorServiceImpl implements DoctorService {
     private final static String ENTITY = "Doctor";
+    private final static String ENTITY2 = "Doctor";
     @Autowired
     private DoctorRepository doctorRepository;
+    @Autowired
+    private SpecialtyRepository specialtyRepository;
     @Autowired
     private Validator validator;
     @Override
@@ -45,12 +49,14 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor create(Doctor request) {
-        try{
-            return doctorRepository.save(request);
-        }catch (Exception e){
-            throw new ResourceValidationException(ENTITY,"An error occurred while saving doctor");
-        }
+    public Doctor create(Doctor request, Long specialtyId) {
+        var specialty = specialtyRepository.findById(specialtyId);
+        if(specialty.isEmpty())
+            throw new ResourceNotFoundException(ENTITY2, specialtyId);
+
+        request.setSpecialty(specialty.get());
+
+        return doctorRepository.save(request);
     }
 
     @Override

@@ -66,7 +66,7 @@ public class AppointmentController {
     }
 
     @Operation(summary = "Delete Appointment", description = "Delete Appointment")
-    @DeleteMapping("{appointmentId}")
+    @DeleteMapping("appointments/{appointmentId}")
     public void deleteAppointment(@PathVariable Long appointmentId){
         appointmentService.delete(appointmentId);
     }

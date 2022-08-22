@@ -1,5 +1,6 @@
 package com.api.lhs.doctor.resource;
 
+import com.api.lhs.specialty.resource.SpecialtyResource;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,4 +19,5 @@ public class DoctorResource {
     private String phone;
     private String username;
     private String password;
+    private SpecialtyResource specialty;
 }

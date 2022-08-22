@@ -1,6 +1,8 @@
 package com.api.lhs.doctor.domain.entity;
 
 import com.api.lhs.shared.domain.model.AuditModel;
+import com.api.lhs.specialty.domain.entity.Specialty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -58,4 +60,9 @@ public class Doctor extends AuditModel {
     @NotBlank
     @Size(min=8,max=20)
     private String password;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "specialty_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Specialty specialty;
 }

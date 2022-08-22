@@ -14,7 +14,7 @@ import java.util.List;
 
 @Tag(name = "Doctor")
 @RestController
-@RequestMapping("api/v1/doctors")
+@RequestMapping("api/v1")
 @CrossOrigin
 public class DoctorController {
     @Autowired
@@ -23,49 +23,49 @@ public class DoctorController {
     private DoctorMapper doctorMapper;
 
     @Operation(summary = "Get All Doctors", description = "Get All Doctors")
-    @GetMapping
+    @GetMapping("doctors")
     public List<DoctorResource> getAllDoctors(){
         return doctorMapper.toResource(doctorService.getAll());
     }
 
     @Operation(summary = "Get Doctor by Id", description = "Get Doctor by Id")
-    @GetMapping("{doctorId}")
+    @GetMapping("doctors/{doctorId}")
     public DoctorResource getDoctorById(@PathVariable Long doctorId){
         return doctorMapper.toResource(doctorService.getById(doctorId));
     }
 
     @Operation(summary = "Get Doctor by Username", description = "Get Doctor by Username")
-    @GetMapping("username/{username}")
+    @GetMapping("doctors/username/{username}")
     public DoctorResource getDoctorByUserName(@PathVariable String username){
         return doctorMapper.toResource(doctorService.getByUserName(username));
     }
 
     @Operation(summary = "Get Doctor by Email", description = "Get Doctor by Email")
-    @GetMapping("email/{email}")
+    @GetMapping("doctors/email/{email}")
     public DoctorResource getDoctorByEmail(@PathVariable String email){
         return doctorMapper.toResource(doctorService.getByEmail(email));
     }
 
     @Operation(summary = "Get Doctor by Complete Name", description = "Get Doctor by Complete Name")
-    @GetMapping("name/{name}/lastName/{lastName}")
+    @GetMapping("doctors/name/{name}/lastName/{lastName}")
     public List<DoctorResource> getDoctorByFirstNameAndLastName(@PathVariable String name, @PathVariable String lastName){
         return doctorMapper.toResource(doctorService.getByNameAndLastName(name, lastName));
     }
 
     @Operation(summary = "Create New Doctor", description = "Create New Doctor")
-    @PostMapping
-    public DoctorResource createDoctor(@RequestBody CreateDoctorResource model){
-        return doctorMapper.toResource(doctorService.create(doctorMapper.toModel(model)));
+    @PostMapping("specialties/{specialtyId}/doctors")
+    public DoctorResource createDoctor(@RequestBody CreateDoctorResource model, @PathVariable Long specialtyId){
+        return doctorMapper.toResource(doctorService.create(doctorMapper.toModel(model), specialtyId));
     }
 
     @Operation(summary = "Update Doctor", description = "Update Doctor")
-    @PutMapping("{doctorId}")
+    @PutMapping("doctors/{doctorId}")
     public DoctorResource updateDoctor(@PathVariable Long doctorId, @RequestBody UpdateDoctorResource model){
         return doctorMapper.toResource(doctorService.update(doctorId, doctorMapper.toModel(model)));
     }
 
     @Operation(summary = "Delete Doctor", description = "Delete Doctor")
-    @DeleteMapping("{doctorId}")
+    @DeleteMapping("doctors/{doctorId}")
     public void deleteDoctor(@PathVariable Long doctorId){
         doctorService.delete(doctorId);
     }
