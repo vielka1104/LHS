@@ -6,12 +6,14 @@ import lombok.Setter;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.validation.constraints.Null;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 public class UpdateAppointmentResource {
-    @Null
+    @NotNull
+    @NotBlank
     private String notes;
 
     @Enumerated(EnumType.ORDINAL)

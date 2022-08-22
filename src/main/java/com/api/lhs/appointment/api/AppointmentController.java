@@ -44,7 +44,7 @@ public class AppointmentController {
     @Operation(summary = "Get Appointments by DoctorId", description = "Get All Appointments by DoctorId")
     @GetMapping("doctors/{doctorId}/appointments")
     public List<AppointmentResource> getAppointmentsByDoctorId(@PathVariable Long doctorId){
-        return appointmentMapper.toResource(appointmentService.getByPatientId(doctorId));
+        return appointmentMapper.toResource(appointmentService.getByDoctorId(doctorId));
     }
 
     @Operation(summary = "Get Appointments by PatientId and DoctorId", description = "Get All Appointments by PatientId and DoctorId")
@@ -54,9 +54,9 @@ public class AppointmentController {
     }
 
     @Operation(summary = "Create New Appointment", description = "Create New Appointment")
-    @PostMapping("patients/{patientId}/doctors/{doctorId}/appointments")
-    public AppointmentResource createAppointment(@RequestBody CreateAppointmentResource model, @PathVariable Long patientId, @PathVariable Long doctorId, @PathVariable Long applianceId){
-        return appointmentMapper.toResource(appointmentService.create(appointmentMapper.toModel(model), patientId, doctorId));
+    @PostMapping("patients/{patientId}/doctors/{doctorId}/admins/{adminId}/appointments")
+    public AppointmentResource createAppointment(@RequestBody CreateAppointmentResource model, @PathVariable Long patientId, @PathVariable Long doctorId, @PathVariable Long adminId){
+        return appointmentMapper.toResource(appointmentService.create(appointmentMapper.toModel(model), patientId, doctorId, adminId));
     }
 
     @Operation(summary = "Update Appointment", description = "Update Appointment")
