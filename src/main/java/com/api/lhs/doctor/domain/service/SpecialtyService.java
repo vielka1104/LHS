@@ -1,6 +1,6 @@
-package com.api.lhs.specialty.domain.service;
+package com.api.lhs.doctor.domain.service;
 
-import com.api.lhs.specialty.domain.entity.Specialty;
+import com.api.lhs.doctor.domain.entity.Specialty;
 
 import java.util.List;
 

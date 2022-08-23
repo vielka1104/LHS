@@ -1,4 +1,4 @@
-package com.api.lhs.specialty.resource;
+package com.api.lhs.doctor.resource;
 
 import lombok.Getter;
 import lombok.Setter;

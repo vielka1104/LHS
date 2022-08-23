@@ -1,10 +1,10 @@
-package com.api.lhs.specialty.api;
+package com.api.lhs.doctor.api;
 
-import com.api.lhs.specialty.domain.service.SpecialtyService;
-import com.api.lhs.specialty.mapping.SpecialtyMapper;
-import com.api.lhs.specialty.resource.CreateSpecialtyResource;
-import com.api.lhs.specialty.resource.SpecialtyResource;
-import com.api.lhs.specialty.resource.UpdateSpecialtyResource;
+import com.api.lhs.doctor.domain.service.SpecialtyService;
+import com.api.lhs.doctor.mapping.SpecialtyMapper;
+import com.api.lhs.doctor.resource.CreateSpecialtyResource;
+import com.api.lhs.doctor.resource.SpecialtyResource;
+import com.api.lhs.doctor.resource.UpdateSpecialtyResource;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

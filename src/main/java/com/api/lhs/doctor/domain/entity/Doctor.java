@@ -1,7 +1,6 @@
 package com.api.lhs.doctor.domain.entity;
 
 import com.api.lhs.shared.domain.model.AuditModel;
-import com.api.lhs.specialty.domain.entity.Specialty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 

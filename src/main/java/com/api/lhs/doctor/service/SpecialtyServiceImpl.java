@@ -1,10 +1,10 @@
-package com.api.lhs.specialty.service;
+package com.api.lhs.doctor.service;
 
 import com.api.lhs.shared.exception.ResourceNotFoundException;
 import com.api.lhs.shared.exception.ResourceValidationException;
-import com.api.lhs.specialty.domain.entity.Specialty;
-import com.api.lhs.specialty.domain.persistence.SpecialtyRepository;
-import com.api.lhs.specialty.domain.service.SpecialtyService;
+import com.api.lhs.doctor.domain.entity.Specialty;
+import com.api.lhs.doctor.domain.persistence.SpecialtyRepository;
+import com.api.lhs.doctor.domain.service.SpecialtyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

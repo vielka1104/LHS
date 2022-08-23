@@ -1,4 +1,4 @@
-package com.api.lhs.specialty.domain.entity;
+package com.api.lhs.doctor.domain.entity;
 
 import com.api.lhs.shared.domain.model.AuditModel;
 import lombok.*;

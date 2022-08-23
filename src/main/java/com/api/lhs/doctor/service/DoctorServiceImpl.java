@@ -5,7 +5,7 @@ import com.api.lhs.doctor.domain.persistence.DoctorRepository;
 import com.api.lhs.doctor.domain.service.DoctorService;
 import com.api.lhs.shared.exception.ResourceNotFoundException;
 import com.api.lhs.shared.exception.ResourceValidationException;
-import com.api.lhs.specialty.domain.persistence.SpecialtyRepository;
+import com.api.lhs.doctor.domain.persistence.SpecialtyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

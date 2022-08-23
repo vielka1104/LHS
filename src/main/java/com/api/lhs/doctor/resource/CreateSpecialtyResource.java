@@ -1,4 +1,4 @@
-package com.api.lhs.specialty.resource;
+package com.api.lhs.doctor.resource;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-public class UpdateSpecialtyResource {
+public class CreateSpecialtyResource {
     @NotNull
     @NotBlank
     @Size(max=40)

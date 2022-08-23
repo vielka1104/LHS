@@ -1,10 +1,10 @@
-package com.api.lhs.specialty.mapping;
+package com.api.lhs.doctor.mapping;
 
 import com.api.lhs.shared.mapping.EnhancedModelMapper;
-import com.api.lhs.specialty.domain.entity.Specialty;
-import com.api.lhs.specialty.resource.CreateSpecialtyResource;
-import com.api.lhs.specialty.resource.SpecialtyResource;
-import com.api.lhs.specialty.resource.UpdateSpecialtyResource;
+import com.api.lhs.doctor.domain.entity.Specialty;
+import com.api.lhs.doctor.resource.CreateSpecialtyResource;
+import com.api.lhs.doctor.resource.SpecialtyResource;
+import com.api.lhs.doctor.resource.UpdateSpecialtyResource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
