@@ -8,8 +8,10 @@ import com.api.lhs.appointment.resource.UpdateAppointmentResource;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Tag(name = "Appointment")
@@ -45,6 +47,12 @@ public class AppointmentController {
     @GetMapping("doctors/{doctorId}/appointments")
     public List<AppointmentResource> getAppointmentsByDoctorId(@PathVariable Long doctorId){
         return appointmentMapper.toResource(appointmentService.getByDoctorId(doctorId));
+    }
+
+    @Operation(summary = "Get Appointments by Date and DoctorId", description = "Get Appointments by Date and DoctorId")
+    @GetMapping("date/{scheduledAt}/doctors/{doctorId}/appointments")
+    public List<AppointmentResource> getAppointmentsByDateAndDoctorId(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date scheduledAt, @PathVariable Long doctorId){
+        return appointmentMapper.toResource(appointmentService.getByScheduledDateAndDoctor(scheduledAt, doctorId));
     }
 
     @Operation(summary = "Get Appointments by PatientId and DoctorId", description = "Get All Appointments by PatientId and DoctorId")

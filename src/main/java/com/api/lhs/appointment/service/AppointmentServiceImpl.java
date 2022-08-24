@@ -10,6 +10,7 @@ import com.api.lhs.shared.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -120,5 +121,10 @@ public class AppointmentServiceImpl implements AppointmentService {
             throw new ResourceNotFoundException(ENTITY3, doctorId);
 
         return appointmentRepository.findByPatient_IdAndDoctor_Id(patientId, doctorId);
+    }
+
+    @Override
+    public List<Appointment> getByScheduledDateAndDoctor(Date scheduleDate, Long doctorId) {
+        return appointmentRepository.findByScheduledAtGreaterThanEqualAndDoctor_Id(scheduleDate, doctorId);
     }
 }

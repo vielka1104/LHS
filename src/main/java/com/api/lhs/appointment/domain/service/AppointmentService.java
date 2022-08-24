@@ -2,6 +2,7 @@ package com.api.lhs.appointment.domain.service;
 
 import com.api.lhs.appointment.domain.entity.Appointment;
 
+import java.util.Date;
 import java.util.List;
 
 public interface AppointmentService {
@@ -14,4 +15,5 @@ public interface AppointmentService {
     List<Appointment> getByDoctorId(Long doctorId);
     List<Appointment> getByAdminId(Long adminId);
     List<Appointment> getByPatientIdAndDoctorId(Long patientId, Long doctorId);
+    List<Appointment> getByScheduledDateAndDoctor(Date scheduleDate, Long doctorId);
 }
