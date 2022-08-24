@@ -64,4 +64,9 @@ public class Doctor extends AuditModel {
     @JoinColumn(name = "specialty_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Specialty specialty;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "shift_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Shift shift;
 }

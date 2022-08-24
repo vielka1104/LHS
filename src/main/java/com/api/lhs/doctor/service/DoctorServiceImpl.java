@@ -2,6 +2,7 @@ package com.api.lhs.doctor.service;
 
 import com.api.lhs.doctor.domain.entity.Doctor;
 import com.api.lhs.doctor.domain.persistence.DoctorRepository;
+import com.api.lhs.doctor.domain.persistence.ShiftRepository;
 import com.api.lhs.doctor.domain.service.DoctorService;
 import com.api.lhs.shared.exception.ResourceNotFoundException;
 import com.api.lhs.shared.exception.ResourceValidationException;
@@ -15,11 +16,15 @@ import java.util.List;
 @Service
 public class DoctorServiceImpl implements DoctorService {
     private final static String ENTITY = "Doctor";
-    private final static String ENTITY2 = "Doctor";
+    private final static String ENTITY2 = "Specialty";
+    private final static String ENTITY3 = "Shift";
     @Autowired
     private DoctorRepository doctorRepository;
     @Autowired
     private SpecialtyRepository specialtyRepository;
+    @Autowired
+    private ShiftRepository shiftRepository;
+
     @Autowired
     private Validator validator;
     @Override
@@ -49,12 +54,17 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor create(Doctor request, Long specialtyId) {
+    public Doctor create(Doctor request, Long specialtyId, Long shiftId) {
         var specialty = specialtyRepository.findById(specialtyId);
         if(specialty.isEmpty())
             throw new ResourceNotFoundException(ENTITY2, specialtyId);
 
+        var shift = shiftRepository.findById(shiftId);
+        if(shift.isEmpty())
+            throw new ResourceNotFoundException(ENTITY3, shiftId);
+
         request.setSpecialty(specialty.get());
+        request.setShift(shift.get());
 
         return doctorRepository.save(request);
     }

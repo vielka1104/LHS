@@ -19,4 +19,5 @@ public class DoctorResource {
     private String username;
     private String password;
     private SpecialtyResource specialty;
+    private ShiftResource shift;
 }

@@ -53,9 +53,9 @@ public class DoctorController {
     }
 
     @Operation(summary = "Create New Doctor", description = "Create New Doctor")
-    @PostMapping("specialties/{specialtyId}/doctors")
-    public DoctorResource createDoctor(@RequestBody CreateDoctorResource model, @PathVariable Long specialtyId){
-        return doctorMapper.toResource(doctorService.create(doctorMapper.toModel(model), specialtyId));
+    @PostMapping("specialties/{specialtyId}/shifts/{shiftId}/doctors")
+    public DoctorResource createDoctor(@RequestBody CreateDoctorResource model, @PathVariable Long specialtyId, @PathVariable Long shiftId){
+        return doctorMapper.toResource(doctorService.create(doctorMapper.toModel(model), specialtyId, shiftId));
     }
 
     @Operation(summary = "Update Doctor", description = "Update Doctor")
