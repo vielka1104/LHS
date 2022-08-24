@@ -10,6 +10,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -17,7 +18,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @With
 @Entity
-@Table(name = "appointment")
+@Table(name = "appointment", uniqueConstraints = {@UniqueConstraint(columnNames = {"doctor_id","scheduledAt"})})
 public class Appointment extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +27,9 @@ public class Appointment extends AuditModel {
     @NotNull
     @NotBlank
     private String notes;
+
+    @NotNull
+    private Date scheduledAt;
 
     @Enumerated(EnumType.ORDINAL)
     private Status status;
