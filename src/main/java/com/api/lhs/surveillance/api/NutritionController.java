@@ -25,7 +25,7 @@ public class NutritionController {
 
     @Operation(summary = "Get All Nutrition Plans", description = "Get All Nutrition Plans")
     @GetMapping
-    public List<NutritionResource> getAllSpecialties(){
+    public List<NutritionResource> getAllNutrition(){
         return nutritionMapper.toResource(nutritionService.getAll());
     }
 
