@@ -16,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @With
 @Entity
-@Table(name = "patient", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"}),@UniqueConstraint(columnNames = {"phone"}),@UniqueConstraint(columnNames = {"email"})})
+@Table(name = "patient", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"}),@UniqueConstraint(columnNames = {"phone"}),@UniqueConstraint(columnNames = {"email"}), @UniqueConstraint(columnNames = {"documentNumber"})})
 public class Patient extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +29,13 @@ public class Patient extends AuditModel {
     @NotNull
     @NotBlank
     private String lastname;
+
+    @Enumerated(EnumType.ORDINAL)
+    private DocumentType documentType;
+
+    @NotNull
+    @NotBlank
+    private String documentNumber;
 
     @NotNull
     private Date birthday;

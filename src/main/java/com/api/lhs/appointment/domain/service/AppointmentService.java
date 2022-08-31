@@ -13,7 +13,7 @@ public interface AppointmentService {
     Appointment delete(Long appointmentId);
     List<Appointment> getByPatientId(Long patientId);
     List<Appointment> getByDoctorId(Long doctorId);
-    List<Appointment> getByAdminId(Long adminId);
+    List<Appointment> getByStaffId(Long staffId);
     List<Appointment> getByPatientIdAndDoctorId(Long patientId, Long doctorId);
     List<Appointment> getByScheduledDateAndDoctor(Date scheduleDate, Long doctorId);
 }

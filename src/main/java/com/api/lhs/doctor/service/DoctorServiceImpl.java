@@ -75,8 +75,8 @@ public class DoctorServiceImpl implements DoctorService {
             return doctorRepository.findById(doctorId).map(doctor -> doctorRepository.save(
                     doctor.withName(request.getName())
                             .withLastname(request.getLastname())
-                            .withBirthday(request.getBirthday())
                             .withGender(request.getGender())
+                            .withDni(request.getDni())
                             .withAddress(request.getAddress())
                             .withEmail(request.getEmail())
                             .withPhone(request.getPhone())

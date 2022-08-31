@@ -61,6 +61,8 @@ public class PatientServiceImpl implements PatientService {
             return patientRepository.findById(patientId).map(patient -> patientRepository.save(
                     patient.withName(request.getName())
                             .withLastname(request.getLastname())
+                            .withDocumentType(request.getDocumentType())
+                            .withDocumentNumber(request.getDocumentNumber())
                             .withBirthday(request.getBirthday())
                             .withGender(request.getGender())
                             .withEmail(request.getEmail())

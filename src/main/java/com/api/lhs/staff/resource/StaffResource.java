@@ -1,23 +1,20 @@
-package com.api.lhs.patient.resource;
+package com.api.lhs.staff.resource;
 
-import com.api.lhs.patient.domain.entity.DocumentType;
+import com.api.lhs.staff.domain.entity.Role;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter
 @Setter
-public class PatientResource {
+public class StaffResource {
     private Long id;
     private String name;
     private String lastname;
-    private DocumentType documentType;
-    private String documentNumber;
-    private Date birthday;
+    private String dni;
     private String gender;
     private String email;
     private String phone;
+    private Role role;
     private String username;
     private String password;
 }

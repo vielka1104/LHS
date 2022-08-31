@@ -1,20 +1,26 @@
-package com.api.lhs.patient.resource;
+package com.api.lhs.staff.domain.entity;
 
-import com.api.lhs.patient.domain.entity.DocumentType;
-import lombok.Getter;
-import lombok.Setter;
+import com.api.lhs.shared.domain.model.AuditModel;
+import lombok.*;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
 
 @Getter
 @Setter
-public class CreatePatientResource {
+@NoArgsConstructor
+@AllArgsConstructor
+@With
+@Entity
+@Table(name = "staff", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"}), @UniqueConstraint(columnNames = {"phone"}), @UniqueConstraint(columnNames = {"email"}), @UniqueConstraint(columnNames = {"dni"})})
+public class Staff extends AuditModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @NotNull
     @NotBlank
     private String name;
@@ -23,15 +29,10 @@ public class CreatePatientResource {
     @NotBlank
     private String lastname;
 
-    @Enumerated(EnumType.ORDINAL)
-    private DocumentType documentType;
-
     @NotNull
     @NotBlank
-    private String documentNumber;
-
-    @NotNull
-    private Date birthday;
+    @Size(min = 8, max = 8)
+    private String dni;
 
     @NotNull
     private String gender;
@@ -46,6 +47,9 @@ public class CreatePatientResource {
     @NotBlank
     @Size(max=9)
     private String phone;
+
+    @Enumerated(EnumType.ORDINAL)
+    private Role role;
 
     @NotNull
     @NotBlank

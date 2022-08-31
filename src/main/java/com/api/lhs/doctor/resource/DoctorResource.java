@@ -11,8 +11,8 @@ public class DoctorResource {
     private Long id;
     private String name;
     private String lastname;
-    private Date birthday;
     private String gender;
+    private String dni;
     private String address;
     private String email;
     private String phone;

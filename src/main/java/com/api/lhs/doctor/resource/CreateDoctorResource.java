@@ -21,10 +21,12 @@ public class CreateDoctorResource {
     private String lastname;
 
     @NotNull
-    private Date birthday;
+    private String gender;
 
     @NotNull
-    private String gender;
+    @NotBlank
+    @Size(min = 8, max = 8)
+    private String dni;
 
     @NotNull
     private String address;

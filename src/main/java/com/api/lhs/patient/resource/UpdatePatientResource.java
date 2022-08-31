@@ -1,8 +1,11 @@
 package com.api.lhs.patient.resource;
 
+import com.api.lhs.patient.domain.entity.DocumentType;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -19,6 +22,13 @@ public class UpdatePatientResource {
     @NotNull
     @NotBlank
     private String lastname;
+
+    @Enumerated(EnumType.ORDINAL)
+    private DocumentType documentType;
+
+    @NotNull
+    @NotBlank
+    private String documentNumber;
 
     @NotNull
     private Date birthday;
