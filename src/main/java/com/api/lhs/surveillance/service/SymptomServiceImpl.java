@@ -3,7 +3,6 @@ package com.api.lhs.surveillance.service;
 import com.api.lhs.shared.exception.ResourceNotFoundException;
 import com.api.lhs.shared.exception.ResourceValidationException;
 import com.api.lhs.surveillance.domain.entity.Symptom;
-import com.api.lhs.surveillance.domain.persistence.NutritionRepository;
 import com.api.lhs.surveillance.domain.persistence.SymptomRepository;
 import com.api.lhs.surveillance.domain.service.SymptomService;
 import org.springframework.beans.factory.annotation.Autowired;

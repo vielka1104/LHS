@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @With
 @Entity
-@Table(name = "symptons")
+@Table(name = "symptom")
 public class Symptom extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
