@@ -48,11 +48,13 @@ public class BloodTestServiceImpl implements BloodTestService {
                             .withHemoglobin(request.getHemoglobin())
                             .withMch(request.getMch())
                             .withMvc(request.getMvc())
-                            .withLeukocytesAndRedBloodCells(request.getLeukocytesAndRedBloodCells())
+                            .withLeukocytes(request.getLeukocytes())
+                            .withErythrocytes(request.getErythrocytes())
                             .withLymphocytes(request.getLymphocytes())
                             .withMonocytes(request.getMonocytes())
                             .withSegmented(request.getSegmented())
-                            .withUreaAndCreatinine(request.getUreaAndCreatinine())
+                            .withUrea(request.getUrea())
+                            .withCreatinine(request.getCreatinine())
             )).orElseThrow(()-> new ResourceNotFoundException(ENTITY, bloodTestId));
         }catch (Exception e){
             throw new ResourceValidationException(ENTITY, "An error occurred while updating bloodTest");

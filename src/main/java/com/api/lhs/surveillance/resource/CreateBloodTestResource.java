@@ -27,7 +27,10 @@ public class CreateBloodTestResource {
     private Float mch;
 
     @NotNull
-    private Float leukocytesAndRedBloodCells;
+    private Float leukocytes;
+
+    @NotNull
+    private Float erythrocytes;
 
     @NotNull
     private Float glucose;
@@ -36,5 +39,8 @@ public class CreateBloodTestResource {
     private Float cholesterol;
 
     @NotNull
-    private Float ureaAndCreatinine;
+    private Float urea;
+
+    @NotNull
+    private Float creatinine;
 }

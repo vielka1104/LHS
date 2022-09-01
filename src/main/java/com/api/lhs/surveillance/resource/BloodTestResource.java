@@ -13,8 +13,10 @@ public class BloodTestResource {
     private Float monocytes;
     private Float mvc;
     private Float mch;
-    private Float leukocytesAndRedBloodCells;
+    private Float leukocytes;
+    private Float erythrocytes;
     private Float glucose;
     private Float cholesterol;
-    private Float ureaAndCreatinine;
+    private Float urea;
+    private Float creatinine;
 }
