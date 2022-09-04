@@ -8,12 +8,11 @@ import java.util.List;
 public interface AppointmentService {
     List<Appointment> getAll();
     Appointment getById(Long appointmentId);
-    Appointment create(Appointment appointment, Long patientId, Long doctorId, Long adminId);
+    Appointment create(Appointment appointment, Long patientId, Long doctorId);
     Appointment update(Long appointmentId, Appointment appointment);
     Appointment delete(Long appointmentId);
     List<Appointment> getByPatientId(Long patientId);
     List<Appointment> getByDoctorId(Long doctorId);
-    List<Appointment> getByStaffId(Long staffId);
     List<Appointment> getByPatientIdAndDoctorId(Long patientId, Long doctorId);
     List<Appointment> getByScheduledDateAndDoctor(Date scheduleDate, Long doctorId);
 }

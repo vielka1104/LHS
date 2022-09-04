@@ -1,6 +1,5 @@
 package com.api.lhs.appointment.service;
 
-import com.api.lhs.staff.domain.persistence.StaffRepository;
 import com.api.lhs.appointment.domain.entity.Appointment;
 import com.api.lhs.appointment.domain.persistence.AppointmentRepository;
 import com.api.lhs.appointment.domain.service.AppointmentService;
@@ -19,7 +18,6 @@ public class AppointmentServiceImpl implements AppointmentService {
     private final static String ENTITY = "Appointment";
     private final static String ENTITY2 = "Patient";
     private final static String ENTITY3 = "Doctor";
-    private final static String ENTITY4 = "Staff";
 
     @Autowired
     private AppointmentRepository appointmentRepository;
@@ -30,8 +28,6 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Autowired
     private DoctorRepository doctorRepository;
 
-    @Autowired
-    private StaffRepository staffRepository;
 
     @Override
     public List<Appointment> getAll() {
@@ -45,7 +41,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public Appointment create(Appointment request, Long patientId, Long doctorId, Long staffId) {
+    public Appointment create(Appointment request, Long patientId, Long doctorId) {
         var patient = patientRepository.findById(patientId);
         if(patient.isEmpty())
             throw new ResourceNotFoundException(ENTITY2, patientId);
@@ -54,13 +50,8 @@ public class AppointmentServiceImpl implements AppointmentService {
         if(doctor.isEmpty())
             throw new ResourceNotFoundException(ENTITY3, doctorId);
 
-        var staff = staffRepository.findById(staffId);
-        if(staff.isEmpty())
-            throw new ResourceNotFoundException(ENTITY4, staffId);
-
         request.setPatient(patient.get());
         request.setDoctor(doctor.get());
-        request.setStaff(staff.get());
 
         return appointmentRepository.save(request);
     }
@@ -99,15 +90,6 @@ public class AppointmentServiceImpl implements AppointmentService {
             throw new ResourceNotFoundException(ENTITY3, doctorId);
 
         return appointmentRepository.findByDoctor_Id(doctorId);
-    }
-
-    @Override
-    public List<Appointment> getByStaffId(Long staffId) {
-        var staff = staffRepository.findById(staffId);
-        if(staff.isEmpty())
-            throw new ResourceNotFoundException(ENTITY4, staffId);
-
-        return appointmentRepository.findByStaff_Id(staffId);
     }
 
     @Override

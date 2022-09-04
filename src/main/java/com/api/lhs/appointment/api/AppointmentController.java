@@ -62,9 +62,9 @@ public class AppointmentController {
     }
 
     @Operation(summary = "Create New Appointment", description = "Create New Appointment")
-    @PostMapping("patients/{patientId}/doctors/{doctorId}/admins/{adminId}/appointments")
-    public AppointmentResource createAppointment(@RequestBody CreateAppointmentResource model, @PathVariable Long patientId, @PathVariable Long doctorId, @PathVariable Long adminId){
-        return appointmentMapper.toResource(appointmentService.create(appointmentMapper.toModel(model), patientId, doctorId, adminId));
+    @PostMapping("patients/{patientId}/doctors/{doctorId}/appointments")
+    public AppointmentResource createAppointment(@RequestBody CreateAppointmentResource model, @PathVariable Long patientId, @PathVariable Long doctorId){
+        return appointmentMapper.toResource(appointmentService.create(appointmentMapper.toModel(model), patientId, doctorId));
     }
 
     @Operation(summary = "Update Appointment", description = "Update Appointment")

@@ -1,6 +1,5 @@
 package com.api.lhs.appointment.resource;
 
-import com.api.lhs.staff.resource.StaffResource;
 import com.api.lhs.appointment.domain.entity.Status;
 import com.api.lhs.doctor.resource.DoctorResource;
 import com.api.lhs.patient.resource.PatientResource;
@@ -18,5 +17,4 @@ public class AppointmentResource {
     private Status status;
     private PatientResource patient;
     private DoctorResource doctor;
-    private StaffResource staff;
 }

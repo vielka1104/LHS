@@ -42,6 +42,11 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public Patient getByDocumentNumber(String documentNumber) {
+        return patientRepository.findByDocumentNumber(documentNumber);
+    }
+
+    @Override
     public List<Patient> getByNameAndLastName(String name, String lastName) {
         return patientRepository.findByNameAndLastnameContaining(name, lastName);
     }

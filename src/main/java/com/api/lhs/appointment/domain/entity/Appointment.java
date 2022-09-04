@@ -1,6 +1,5 @@
 package com.api.lhs.appointment.domain.entity;
 
-import com.api.lhs.staff.domain.entity.Staff;
 import com.api.lhs.doctor.domain.entity.Doctor;
 import com.api.lhs.patient.domain.entity.Patient;
 import com.api.lhs.shared.domain.model.AuditModel;
@@ -43,9 +42,4 @@ public class Appointment extends AuditModel {
     @JoinColumn(name = "doctor_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Doctor doctor;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "staff_id", nullable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Staff staff;
 }

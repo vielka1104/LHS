@@ -9,6 +9,7 @@ public interface PatientService {
     Patient getById(Long patientId);
     Patient getByUserName(String username);
     Patient getByEmail(String email);
+    Patient getByDocumentNumber(String documentNumber);
     List<Patient> getByNameAndLastName(String name, String lastName);
     Patient create(Patient patient);
     Patient update(Long patientId, Patient patient);

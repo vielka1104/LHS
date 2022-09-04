@@ -47,6 +47,12 @@ public class PatientController {
         return patientMapper.toResource(patientService.getByEmail(email));
     }
 
+    @Operation(summary = "Get Patient by Document Number", description = "Get Patient by Document Number")
+    @GetMapping("document-number/{documentNumber}")
+    public PatientResource getPatientByDocumentNumber(@PathVariable String documentNumber){
+        return patientMapper.toResource(patientService.getByDocumentNumber(documentNumber));
+    }
+
     @Operation(summary = "Get Patient by Complete Name", description = "Get Patient by Complete Name")
     @GetMapping("name/{name}/lastName/{lastName}")
     public List<PatientResource> getPatientByFirstNameAndLastName(@PathVariable String name, @PathVariable String lastName){

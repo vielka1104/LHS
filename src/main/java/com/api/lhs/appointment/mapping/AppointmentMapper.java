@@ -16,7 +16,7 @@ public class AppointmentMapper implements Serializable {
     public AppointmentResource toResource(Appointment model){
         return mapper.map(model, AppointmentResource.class);
     }
-    public List<AppointmentResource> toResource(List<Appointment>model){
+    public List<AppointmentResource> toResource(List<Appointment> model){
         return mapper.mapList(model, AppointmentResource.class);
     }
     public Appointment toModel(CreateAppointmentResource resource){
