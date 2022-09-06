@@ -15,10 +15,8 @@ import java.util.List;
 @Service
 public class TreatmentServiceImpl implements TreatmentService {
     private final static String ENTITY = "Treatment";
-
     @Autowired
     private TreatmentRepository treatmentRepository;
-
     @Autowired
     private Validator validator;
 
