@@ -14,7 +14,6 @@ import java.util.List;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
-
     private final static String ENTITY = "Appointment";
     private final static String ENTITY2 = "Patient";
     private final static String ENTITY3 = "Doctor";
