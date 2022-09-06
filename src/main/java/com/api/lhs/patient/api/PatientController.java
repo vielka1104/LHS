@@ -14,7 +14,7 @@ import java.util.List;
 
 @Tag(name = "Patient")
 @RestController
-@RequestMapping("api/v1/patients")
+@RequestMapping("api/v1")
 @CrossOrigin
 public class PatientController {
     @Autowired
@@ -24,55 +24,61 @@ public class PatientController {
     private PatientMapper patientMapper;
 
     @Operation(summary = "Get All Patients", description = "Get All Patients")
-    @GetMapping
+    @GetMapping("patients")
     public List<PatientResource> getAllPatients(){
         return patientMapper.toResource(patientService.getAll());
     }
 
     @Operation(summary = "Get Patient by Id", description = "Get Patient by Id")
-    @GetMapping("{patientId}")
+    @GetMapping("patients/{patientId}")
     public PatientResource getPatientById(@PathVariable Long patientId){
         return patientMapper.toResource(patientService.getById(patientId));
     }
 
     @Operation(summary = "Get Patient by Username", description = "Get Patient by Username")
-    @GetMapping("username/{username}")
-    public PatientResource getPatientByUserName(@PathVariable String username){
+    @GetMapping("patients/username/{username}")
+    public List<PatientResource> getPatientByUserName(@PathVariable String username){
         return patientMapper.toResource(patientService.getByUserName(username));
     }
 
     @Operation(summary = "Get Patient by Email", description = "Get Patient by Email")
-    @GetMapping("email/{email}")
-    public PatientResource getPatientByEmail(@PathVariable String email){
+    @GetMapping("patients/email/{email}")
+    public List<PatientResource> getPatientByEmail(@PathVariable String email){
         return patientMapper.toResource(patientService.getByEmail(email));
     }
 
     @Operation(summary = "Get Patient by Document Number", description = "Get Patient by Document Number")
-    @GetMapping("document-number/{documentNumber}")
-    public PatientResource getPatientByDocumentNumber(@PathVariable String documentNumber){
+    @GetMapping("patients/document-number/{documentNumber}")
+    public List<PatientResource> getPatientByDocumentNumber(@PathVariable String documentNumber){
         return patientMapper.toResource(patientService.getByDocumentNumber(documentNumber));
     }
 
+    @Operation(summary = "Get Patients by Renal Disease", description = "Get Patients by Renal Disease")
+    @GetMapping("patients/renal-disease/{renalDisease}")
+    public List<PatientResource> getPatientsByRenalDisease(@PathVariable Long renalDisease){
+        return patientMapper.toResource(patientService.getByRenalDiseaseId(renalDisease));
+    }
+
     @Operation(summary = "Get Patient by Complete Name", description = "Get Patient by Complete Name")
-    @GetMapping("name/{name}/lastName/{lastName}")
+    @GetMapping("patients/name/{name}/lastName/{lastName}")
     public List<PatientResource> getPatientByFirstNameAndLastName(@PathVariable String name, @PathVariable String lastName){
         return patientMapper.toResource(patientService.getByNameAndLastName(name, lastName));
     }
 
     @Operation(summary = "Create New Patient", description = "Create New Patient")
-    @PostMapping
-    public PatientResource createPatient(@RequestBody CreatePatientResource model){
-        return patientMapper.toResource(patientService.create(patientMapper.toModel(model)));
+    @PostMapping("renal-diseases/{renalDiseaseId}/patients")
+    public PatientResource createPatient(@RequestBody CreatePatientResource model, @PathVariable Long renalDiseaseId){
+        return patientMapper.toResource(patientService.create(renalDiseaseId, patientMapper.toModel(model)));
     }
 
     @Operation(summary = "Update Patient", description = "Update Patient")
-    @PutMapping("{patientId}")
+    @PutMapping("patients/{patientId}")
     public PatientResource updatePatient(@PathVariable Long patientId, @RequestBody UpdatePatientResource model){
         return patientMapper.toResource(patientService.update(patientId, patientMapper.toModel(model)));
     }
 
     @Operation(summary = "Delete Patient", description = "Delete Patient")
-    @DeleteMapping("{patientId}")
+    @DeleteMapping("patients/{patientId}")
     public void deletePatient(@PathVariable Long patientId){
         patientService.delete(patientId);
     }

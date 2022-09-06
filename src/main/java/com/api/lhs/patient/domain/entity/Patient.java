@@ -1,6 +1,7 @@
 package com.api.lhs.patient.domain.entity;
 
 import com.api.lhs.shared.domain.model.AuditModel;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -62,4 +63,11 @@ public class Patient extends AuditModel {
     @NotBlank
     @Size(min=8,max=20)
     private String password;
+
+    private String height;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "renal_disease_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private RenalDisease renalDisease;
 }

@@ -20,4 +20,6 @@ public class PatientResource {
     private String phone;
     private String username;
     private String password;
+    private String height;
+    private RenalDiseaseResource renalDisease;
 }

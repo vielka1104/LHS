@@ -55,4 +55,6 @@ public class CreatePatientResource {
     @NotBlank
     @Size(min=8,max=20)
     private String password;
+
+    private String height;
 }
