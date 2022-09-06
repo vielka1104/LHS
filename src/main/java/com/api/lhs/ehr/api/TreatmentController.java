@@ -19,7 +19,6 @@ import java.util.List;
 public class TreatmentController {
     @Autowired
     private TreatmentService treatmentService;
-
     @Autowired
     private TreatmentMapper treatmentMapper;
 

@@ -3,7 +3,6 @@ package com.api.lhs.ehr.service;
 import com.api.lhs.ehr.domain.entity.Treatment;
 import com.api.lhs.ehr.domain.persistence.TreatmentRepository;
 import com.api.lhs.ehr.domain.service.TreatmentService;
-import com.api.lhs.ehr.resource.TreatmentResource;
 import com.api.lhs.shared.exception.ResourceNotFoundException;
 import com.api.lhs.shared.exception.ResourceValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +49,7 @@ public class TreatmentServiceImpl implements TreatmentService {
         try{
             return treatmentRepository.findById(treatmentId).map(treatment -> treatmentRepository.save(
                     treatment.withName(request.getName())
+                            .withDescription(request.getDescription())
             )).orElseThrow(()-> new ResourceNotFoundException(ENTITY, treatmentId));
         }catch (Exception e){
             throw new ResourceValidationException(ENTITY, "An error occurred while updating treatment");
