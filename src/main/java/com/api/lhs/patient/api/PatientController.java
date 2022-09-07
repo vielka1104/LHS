@@ -43,13 +43,13 @@ public class PatientController {
 
     @Operation(summary = "Get Patient by Email", description = "Get Patient by Email")
     @GetMapping("patients/email/{email}")
-    public List<PatientResource> getPatientByEmail(@PathVariable String email){
+    public PatientResource getPatientByEmail(@PathVariable String email){
         return patientMapper.toResource(patientService.getByEmail(email));
     }
 
     @Operation(summary = "Get Patient by Document Number", description = "Get Patient by Document Number")
     @GetMapping("patients/document-number/{documentNumber}")
-    public List<PatientResource> getPatientByDocumentNumber(@PathVariable String documentNumber){
+    public PatientResource getPatientByDocumentNumber(@PathVariable String documentNumber){
         return patientMapper.toResource(patientService.getByDocumentNumber(documentNumber));
     }
 

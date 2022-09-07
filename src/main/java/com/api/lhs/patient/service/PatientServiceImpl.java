@@ -41,13 +41,13 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public List<Patient> getByEmail(String email) {
-        return patientRepository.findByEmailContains(email);
+    public Patient getByEmail(String email) {
+        return patientRepository.findByEmail(email);
     }
 
     @Override
-    public List<Patient> getByDocumentNumber(String documentNumber) {
-        return patientRepository.findByDocumentNumberContains(documentNumber);
+    public Patient getByDocumentNumber(String documentNumber) {
+        return patientRepository.findByDocumentNumber(documentNumber);
     }
 
     @Override
