@@ -15,8 +15,8 @@ import java.util.Date;
 @AllArgsConstructor
 @With
 @Entity
-@Table(name = "patient_diagnosis", uniqueConstraints = {@UniqueConstraint(columnNames = {"patient_id", "diagnosis_id"})})
-public class PatientDiagnosis extends AuditModel {
+@Table(name = "patient_treatment", uniqueConstraints = {@UniqueConstraint(columnNames = {"patient_id", "treatment_id", "medication_id"})})
+public class PatientTreatment extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,13 +26,21 @@ public class PatientDiagnosis extends AuditModel {
 
     private Date endDate;
 
+    @NotNull
+    private Float dose;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Patient patient;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "diagnosis_id", nullable = false)
+    @JoinColumn(name = "treatment_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Diagnosis diagnosis;
+    private Treatment treatment;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "medicine_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Medicine medicine;
 }

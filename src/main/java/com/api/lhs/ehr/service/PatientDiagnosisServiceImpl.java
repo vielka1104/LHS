@@ -44,6 +44,11 @@ public class PatientDiagnosisServiceImpl implements PatientDiagnosisService {
     }
 
     @Override
+    public List<PatientDiagnosis> getByDiagnosisId(Long diagnosisId) {
+        return patientDiagnosisRepository.findByDiagnosis_Id(diagnosisId);
+    }
+
+    @Override
     public PatientDiagnosis create(PatientDiagnosis request, Long patientId, Long diagnosisId) {
         var patient = patientRepository.findById(patientId);
         if(patient.isEmpty())

@@ -40,6 +40,12 @@ public class PatientDiagnosisController {
         return patientDiagnosisMapper.toResource(patientDiagnosisService.getByPatientId(patientId));
     }
 
+    @Operation(summary = "Get Patient Diagnosis by Diagnosis Id", description = "Get Patient Diagnosis by Diagnosis Id")
+    @GetMapping("patient-diagnosis/diagnosis/{diagnosisId}")
+    public List<PatientDiagnosisResource> getPatientDiagnosisByDiagnosisId(@PathVariable Long diagnosisId){
+        return patientDiagnosisMapper.toResource(patientDiagnosisService.getByDiagnosisId(diagnosisId));
+    }
+
     @Operation(summary = "Create New Patient Diagnosis", description = "Create New Patient Diagnosis")
     @PostMapping("patients/{patientId}/diagnosis/{diagnosisId}/patient-diagnosis")
     public PatientDiagnosisResource createPatientDiagnosis(@PathVariable Long patientId, @PathVariable Long diagnosisId, @RequestBody CreatePatientDiagnosisResource model){
