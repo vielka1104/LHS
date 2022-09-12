@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @With
 @Entity
-@Table(name = "patient_treatment", uniqueConstraints = {@UniqueConstraint(columnNames = {"patient_id", "treatment_id", "medication_id"})})
+@Table(name = "patient_treatment", uniqueConstraints = {@UniqueConstraint(columnNames = {"patient_id", "treatment_id", "medicine_id"})})
 public class PatientTreatment extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
