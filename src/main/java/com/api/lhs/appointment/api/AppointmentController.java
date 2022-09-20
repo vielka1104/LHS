@@ -17,7 +17,7 @@ import java.util.List;
 @Tag(name = "Appointment")
 @RestController
 @RequestMapping("api/v1")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin()
 public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;

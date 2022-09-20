@@ -81,6 +81,7 @@ public class SurveillanceServiceImpl implements SurveillanceService {
                                 .withErythrocytes(request.getErythrocytes())
                                 .withGlucose(request.getGlucose())
                                 .withCholesterol(request.getCholesterol())
+                                .withTriglycerides(request.getTriglycerides())
                                 .withUrea(request.getUrea())
                                 .withCreatinine(request.getCreatinine())
                                 .withDensity(request.getDensity())

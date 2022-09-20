@@ -22,6 +22,7 @@ public class SurveillanceResource {
     private Float erythrocytes;
     private Float glucose;
     private Float cholesterol;
+    private Float triglycerides;
     private Float urea;
     private Float creatinine;
     private Float density;

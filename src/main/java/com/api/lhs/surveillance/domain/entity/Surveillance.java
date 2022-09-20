@@ -54,6 +54,8 @@ public class Surveillance extends AuditModel {
 
     private Float cholesterol;
 
+    private Float triglycerides;
+
     private Float urea;
 
     private Float creatinine;

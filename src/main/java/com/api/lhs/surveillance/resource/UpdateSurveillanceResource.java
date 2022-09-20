@@ -31,6 +31,8 @@ public class UpdateSurveillanceResource {
 
     private Float cholesterol;
 
+    private Float triglycerides;
+
     private Float urea;
 
     private Float creatinine;
