@@ -35,6 +35,12 @@ public class RenalDiseaseController {
         return renalDiseaseMapper.toResource(renalDiseaseService.getById(renalDiseaseId));
     }
 
+    @Operation(summary = "Get Renal Disease by Name", description = "Get Renal Disease by Name")
+    @GetMapping("{name}/")
+    public RenalDiseaseResource getRenalDiseaseById(@PathVariable String name){
+        return renalDiseaseMapper.toResource(renalDiseaseService.getByName(name));
+    }
+
     @Operation(summary ="Create Renal Disease", description = "Create Renal Disease")
     @PostMapping
     public RenalDiseaseResource createRenalDisease(@RequestBody CreateRenalDiseaseResource model){

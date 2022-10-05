@@ -32,6 +32,11 @@ public class RenalDiseaseServiceImpl implements RenalDiseaseService {
     }
 
     @Override
+    public RenalDisease getByName(String name) {
+        return renalDiseaseRepository.findByName(name);
+    }
+
+    @Override
     public RenalDisease create(RenalDisease request) {
         try{
             return renalDiseaseRepository.save(request);

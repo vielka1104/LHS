@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.Validator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -58,6 +59,26 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public List<Patient> getByRenalDiseaseId(Long renalDiseaseId) {
         return patientRepository.findByRenalDiseaseId(renalDiseaseId);
+    }
+
+    @Override
+    public Patient updateRenalDisease(Long patientId, Long renalDiseaseId) {
+        try{
+            var renalDisease = renalDiseaseRepository.findById(renalDiseaseId);
+            if(renalDisease.isEmpty())
+                throw new ResourceNotFoundException(ENTITY2, renalDiseaseId);
+
+            Optional<Patient> patient = patientRepository.findById(patientId);
+            if(patient.isEmpty())
+                throw new ResourceNotFoundException(ENTITY, patientId);
+
+            Patient finalPatient = patient.get();
+            finalPatient.setRenalDisease(renalDisease.get());
+
+            return patientRepository.save(finalPatient);
+        } catch (Exception e) {
+            throw new ResourceValidationException(ENTITY, "An error occurred while saving patient");
+        }
     }
 
     @Override

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RenalDiseaseRepository extends JpaRepository<RenalDisease, Long> {
+    RenalDisease findByName(String name);
 }

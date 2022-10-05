@@ -59,6 +59,12 @@ public class PatientController {
         return patientMapper.toResource(patientService.getByRenalDiseaseId(renalDisease));
     }
 
+    @Operation(summary = "Update Patient Renal Disease", description = "Update Patient")
+    @PutMapping("patients/{patientId}/renal-diseases/{renalDiseaseId}")
+    public PatientResource updatePatient(@PathVariable Long patientId, @PathVariable Long renalDiseaseId){
+        return patientMapper.toResource(patientService.updateRenalDisease(patientId, renalDiseaseId));
+    }
+
     @Operation(summary = "Get Patient by Complete Name", description = "Get Patient by Complete Name")
     @GetMapping("patients/name/{name}/lastName/{lastName}")
     public List<PatientResource> getPatientByFirstNameAndLastName(@PathVariable String name, @PathVariable String lastName){
