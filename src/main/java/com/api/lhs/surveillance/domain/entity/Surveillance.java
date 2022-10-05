@@ -31,66 +31,63 @@ public class Surveillance extends AuditModel {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Doctor doctor;
 
+    // Calculate ktv
     @NotNull
-    private Float weight;
+    private Float initWeight;
+    private Float finalWeight;
+    private Float hdTime;
+    private Float uf;
 
+    // Clinic
+    private Float ureaPre;
+    private Float hematocrit;
+    private Float serumElectrolytes;
+    private Float chlorine;
+    private Float phosphorus;
+    private Float serumCalcium;
+    private Float proteinElectrophoresis;
+    private Float alkalinePhosphatase;
+    private Float tgo;
+    private Float tgp;
+    private Float dayCreatinine;
+    private Float parathormone;
+    private Float serumIron;
+    private Float serumFerritin;
+    private Float transferrinSaturation;
+    private Float transferrin;
+    private Float elisa;
+    private Float vdrlAndRpr;
+    private Float hepatitisBAntigen;
+    private Float hepatitisBAntibody;
+    private Float hepatitisCAntibody;
+    private Float ktv;
+
+    // Shared
+    private Float bloodUrea; // este es el postUrea
+    private Float serumCreatinine; // este es creatinina
     private Float hemoglobin;
+    private Float sodium;
+    private Float potassium;
+    private Float albumin;
 
-    private Float lymphocytes;
-
-    private Float segmented;
-
-    private Float monocytes;
-
-    private Float mvc;
-
-    private Float mch;
-
-    private Float leukocytes;
-
-    private Float erythrocytes;
-
-    private Float glucose;
-
-    private Float cholesterol;
-
-    private Float triglycerides;
-
-    private Float urea;
-
-    private Float creatinine;
-
-    private Float density;
-
-    private Float ph;
-
-    private Float protein;
-
-    private Float ketone;
-
-    private Float urobilinogen;
-
-    private Float bilirubin;
-
-    private Float nitrite;
-
-    private Float crystals;
-
+    // Prediction
+    private Float bloodPressure;
+    private Float specificGravity;
     private Float sugar;
+    private Integer redBloodCells;
+    private Integer pusCells;
+    private Integer pusCellClumps;
+    private Integer bacteria;
+    private Float bloodGlucoseRandom;
+    private Float packedCellVolume;
+    private Float whiteBloodCellCount;
+    private Float redBloodCellCount;
+    private Integer appetite;
 
-    private String urineAppearance;
-
-    private String urineColor;
-
+    // Legacy
     private Integer planCalories;
-
     private Integer consumedCalories;
-
-    private String appetite;
-
     private String pain;
-
     private String otherSymptoms;
-
     private Float imc;
 }
