@@ -60,6 +60,7 @@ public class UpdateSurveillanceResource {
     private Float whiteBloodCellCount;
     private Float redBloodCellCount;
     private Integer appetite;
+    private Integer pedalEdema;
 
     // Legacy
     private Integer planCalories;
