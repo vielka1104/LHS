@@ -47,9 +47,9 @@ public class PatientTreatmentController {
     }
 
     @Operation(summary = "Create Patient Treatment", description = "Create Patient Treatment")
-    @PostMapping("patients/{patientId}/treatments/{treatmentId}/medicine/{medicineId}/patient-treatments")
-    public PatientTreatmentResource createPatientTreatment(@PathVariable Long patientId, @PathVariable Long treatmentId, @PathVariable Long medicineId, @RequestBody CreatePatientTreatmentResource model){
-        return patientTreatmentMapper.toResource(patientTreatmentService.create(patientTreatmentMapper.toModel(model), patientId, treatmentId, medicineId));
+    @PostMapping("patients/{patientId}/treatments/{treatmentId}/patient-treatments")
+    public PatientTreatmentResource createPatientTreatment(@PathVariable Long patientId, @PathVariable Long treatmentId, @RequestBody CreatePatientTreatmentResource model){
+        return patientTreatmentMapper.toResource(patientTreatmentService.create(patientTreatmentMapper.toModel(model), patientId, treatmentId));
     }
 
     @Operation(summary = "Update Patient Treatment", description = "Update Patient Treatment")

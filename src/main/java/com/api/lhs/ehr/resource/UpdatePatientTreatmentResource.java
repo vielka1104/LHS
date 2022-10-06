@@ -9,11 +9,4 @@ import java.util.Date;
 @Getter
 @Setter
 public class UpdatePatientTreatmentResource {
-    @NotNull
-    private Date startDate;
-
-    private Date endDate;
-
-    @NotNull
-    private Float dose;
 }

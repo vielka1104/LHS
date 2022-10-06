@@ -9,7 +9,7 @@ public interface PatientTreatmentService {
     PatientTreatment getById(Long patientTreatmentId);
     List<PatientTreatment> getByPatientId(Long patientId);
     List<PatientTreatment> getByTreatmentId(Long treatmentId);
-    PatientTreatment create(PatientTreatment request, Long patientId, Long treatmentId, Long medicineId);
+    PatientTreatment create(PatientTreatment request, Long patientId, Long treatmentId);
     PatientTreatment update(Long patientTreatmentId, PatientTreatment request);
     PatientTreatment delete(Long patientTreatmentId);
 }

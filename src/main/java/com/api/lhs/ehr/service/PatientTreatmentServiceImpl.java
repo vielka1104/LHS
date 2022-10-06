@@ -17,7 +17,6 @@ public class PatientTreatmentServiceImpl implements PatientTreatmentService {
     private final static String ENTITY = "PatientTreatment";
     private final static String ENTITY2 = "Patient";
     private final static String ENTITY3 = "Treatment";
-    private final static String ENTITY4 = "Medicine";
 
     @Autowired
     private PatientTreatmentRepository patientTreatmentRepository;
@@ -25,8 +24,6 @@ public class PatientTreatmentServiceImpl implements PatientTreatmentService {
     private PatientRepository patientRepository;
     @Autowired
     private TreatmentRepository treatmentRepository;
-    @Autowired
-    private MedicineRepository medicineRepository;
 
     @Override
     public List<PatientTreatment> getAll() {
@@ -50,7 +47,7 @@ public class PatientTreatmentServiceImpl implements PatientTreatmentService {
     }
 
     @Override
-    public PatientTreatment create(PatientTreatment request, Long patientId, Long treatmentId, Long medicineId) {
+    public PatientTreatment create(PatientTreatment request, Long patientId, Long treatmentId) {
         var patient = patientRepository.findById(patientId);
         if(patient.isEmpty())
             throw new ResourceNotFoundException(ENTITY2, patientId);
@@ -58,14 +55,9 @@ public class PatientTreatmentServiceImpl implements PatientTreatmentService {
         var treatment = treatmentRepository.findById(treatmentId);
         if(treatment.isEmpty())
             throw new ResourceNotFoundException(ENTITY3, treatmentId);
-        
-        var medicine = medicineRepository.findById(medicineId);
-        if(medicine.isEmpty())
-            throw new ResourceNotFoundException(ENTITY4, medicineId);
 
         request.setPatient(patient.get());
         request.setTreatment(treatment.get());
-        request.setMedicine(medicine.get());
         
         return patientTreatmentRepository.save(request);
     }
@@ -73,11 +65,8 @@ public class PatientTreatmentServiceImpl implements PatientTreatmentService {
     @Override
     public PatientTreatment update(Long patientTreatmentId, PatientTreatment request) {
         return patientTreatmentRepository.findById(patientTreatmentId)
-                .map(patientTreatment -> patientTreatmentRepository.save(
-                        patientTreatment.withStartDate(request.getStartDate())
-                                .withEndDate(request.getEndDate())
-                                .withDose(request.getDose())
-                )).orElseThrow(()-> new ResourceNotFoundException(ENTITY, patientTreatmentId));
+                .map(patientTreatment -> patientTreatmentRepository.save(request))
+                .orElseThrow(()-> new ResourceNotFoundException(ENTITY, patientTreatmentId));
     }
 
     @Override
