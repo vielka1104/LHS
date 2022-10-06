@@ -9,6 +9,7 @@ public interface DoctorService {
     Doctor getById(Long doctorId);
     Doctor getByUserName(String username);
     Doctor getByEmail(String email);
+    Doctor getByDni(String dni);
     List<Doctor> getByNameAndLastName(String name, String lastName);
     Doctor create(Doctor doctor, Long specialtyId, Long shiftId);
     Doctor update(Long doctorId, Doctor doctor);

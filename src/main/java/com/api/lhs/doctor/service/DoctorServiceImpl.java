@@ -49,6 +49,11 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
+    public Doctor getByDni(String dni) {
+        return doctorRepository.findByDni(dni);
+    }
+
+    @Override
     public List<Doctor> getByNameAndLastName(String name, String lastName) {
         return doctorRepository.findByNameAndLastnameContaining(name, lastName);
     }
