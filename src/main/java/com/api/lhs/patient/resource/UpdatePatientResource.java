@@ -1,5 +1,6 @@
 package com.api.lhs.patient.resource;
 
+import com.api.lhs.patient.domain.entity.DialysisMaterial;
 import com.api.lhs.patient.domain.entity.DocumentType;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,6 +26,9 @@ public class UpdatePatientResource {
 
     @Enumerated(EnumType.ORDINAL)
     private DocumentType documentType;
+
+    @Enumerated(EnumType.ORDINAL)
+    private DialysisMaterial dialysisMaterial;
 
     @NotNull
     @NotBlank

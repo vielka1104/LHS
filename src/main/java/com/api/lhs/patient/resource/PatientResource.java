@@ -1,5 +1,6 @@
 package com.api.lhs.patient.resource;
 
+import com.api.lhs.patient.domain.entity.DialysisMaterial;
 import com.api.lhs.patient.domain.entity.DocumentType;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +14,7 @@ public class PatientResource {
     private String name;
     private String lastname;
     private DocumentType documentType;
+    private DialysisMaterial dialysisMaterial;
     private String documentNumber;
     private Date birthday;
     private String gender;

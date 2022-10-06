@@ -103,6 +103,7 @@ public class PatientServiceImpl implements PatientService {
                     patient.withName(request.getName())
                             .withLastname(request.getLastname())
                             .withDocumentType(request.getDocumentType())
+                            .withDialysisMaterial(request.getDialysisMaterial())
                             .withDocumentNumber(request.getDocumentNumber())
                             .withBirthday(request.getBirthday())
                             .withGender(request.getGender())

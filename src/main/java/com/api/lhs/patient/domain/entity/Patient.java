@@ -34,6 +34,9 @@ public class Patient extends AuditModel {
     @Enumerated(EnumType.ORDINAL)
     private DocumentType documentType;
 
+    @Enumerated(EnumType.ORDINAL)
+    private DialysisMaterial dialysisMaterial;
+
     @NotNull
     @NotBlank
     private String documentNumber;
