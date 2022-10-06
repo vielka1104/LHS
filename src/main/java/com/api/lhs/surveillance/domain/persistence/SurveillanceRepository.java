@@ -10,6 +10,5 @@ import java.util.List;
 public interface SurveillanceRepository extends JpaRepository<Surveillance, Long> {
     List<Surveillance> findByPatientId(Long patientId);
     List<Surveillance> findByDoctorId(Long doctorId);
-
     List<Surveillance> findByPatientIdAndDoctorId(Long patientId, Long doctorId);
 }
