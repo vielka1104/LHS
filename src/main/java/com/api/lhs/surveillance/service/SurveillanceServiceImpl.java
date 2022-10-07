@@ -1,6 +1,5 @@
 package com.api.lhs.surveillance.service;
 
-import com.api.lhs.doctor.domain.persistence.DoctorRepository;
 import com.api.lhs.patient.domain.persistence.PatientRepository;
 import com.api.lhs.shared.exception.ResourceNotFoundException;
 import com.api.lhs.surveillance.domain.entity.Surveillance;
@@ -15,14 +14,11 @@ import java.util.List;
 public class SurveillanceServiceImpl implements SurveillanceService {
     private final static String ENTITY = "Surveillance";
     private final static String ENTITY2 = "Patient";
-    private final static String ENTITY3 = "Doctor";
 
     @Autowired
     private SurveillanceRepository surveillanceRepository;
     @Autowired
     private PatientRepository patientRepository;
-    @Autowired
-    private DoctorRepository doctorRepository;
 
     @Override
     public List<Surveillance> getAll() {
@@ -41,27 +37,12 @@ public class SurveillanceServiceImpl implements SurveillanceService {
     }
 
     @Override
-    public List<Surveillance> getByDoctorId(Long doctorId) {
-        return surveillanceRepository.findByDoctorId(doctorId);
-    }
-
-    @Override
-    public List<Surveillance> getByPatientIdAndDoctorId(Long patientId, Long doctorId) {
-        return surveillanceRepository.findByPatientIdAndDoctorId(patientId, doctorId);
-    }
-
-    @Override
-    public Surveillance create(Surveillance request, Long patientId, Long doctorId) {
+    public Surveillance create(Surveillance request, Long patientId) {
         var patient = patientRepository.findById(patientId);
         if(patient.isEmpty())
             throw new ResourceNotFoundException(ENTITY2, patientId);
 
-        var doctor = doctorRepository.findById(doctorId);
-        if(doctor.isEmpty())
-            throw new ResourceNotFoundException(ENTITY3, doctorId);
-
         request.setPatient(patient.get());
-        request.setDoctor(doctor.get());
 
         return surveillanceRepository.save(request);
     }
@@ -75,7 +56,6 @@ public class SurveillanceServiceImpl implements SurveillanceService {
                                 .withHdTime(request.getHdTime())
                                 .withUf(request.getUf())
                                 .withUreaPre(request.getUreaPre())
-                                .withHematocrit(request.getHematocrit())
                                 .withSerumElectrolytes(request.getSerumElectrolytes())
                                 .withChlorine(request.getChlorine())
                                 .withPhosphorus(request.getPhosphorus())

@@ -41,22 +41,10 @@ public class SurveillanceController {
         return surveillanceMapper.toResource(surveillanceService.getByPatientId(patientId));
     }
 
-    @Operation(summary = "Get Surveillances by DoctorId", description = "Get All Surveillances by DoctorId")
-    @GetMapping("doctors/{doctorId}/surveillances")
-    public List<SurveillanceResource> getSurveillancesByDoctorId(@PathVariable Long doctorId){
-        return surveillanceMapper.toResource(surveillanceService.getByDoctorId(doctorId));
-    }
-
-    @Operation(summary = "Get Surveillances by PatientId and DoctorId", description = "Get All Surveillances by PatientId and DoctorId")
-    @GetMapping("patients/{patientId}/doctors/{doctorId}/surveillances")
-    public List<SurveillanceResource> getSurveillancesByPatientIdAndDoctorId(@PathVariable Long patientId, @PathVariable Long doctorId){
-        return surveillanceMapper.toResource(surveillanceService.getByPatientIdAndDoctorId(patientId, doctorId));
-    }
-
     @Operation(summary = "Create Surveillance", description = "Create Surveillance")
-    @PostMapping("patients/{patientId}/doctors/{doctorId}/surveillances")
-    public SurveillanceResource createSurveillance(@RequestBody CreateSurveillanceResource surveillanceResource, @PathVariable Long patientId, @PathVariable Long doctorId){
-        return surveillanceMapper.toResource(surveillanceService.create(surveillanceMapper.toModel(surveillanceResource), patientId, doctorId));
+    @PostMapping("patients/{patientId}/surveillances")
+    public SurveillanceResource createSurveillance(@RequestBody CreateSurveillanceResource surveillanceResource, @PathVariable Long patientId){
+        return surveillanceMapper.toResource(surveillanceService.create(surveillanceMapper.toModel(surveillanceResource), patientId));
     }
 
     @Operation(summary = "Update Surveillance", description = "Update Surveillance")

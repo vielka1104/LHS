@@ -12,7 +12,6 @@ import javax.validation.constraints.NotNull;
 public class SurveillanceResource {
     private Long id;
     private PatientResource patient;
-    private DoctorResource doctor;
     // Calculate ktv
     @NotNull
     private Float initWeight;
@@ -22,7 +21,6 @@ public class SurveillanceResource {
 
     // Clinic
     private Float ureaPre;
-    private Float hematocrit;
     private Float serumElectrolytes;
     private Float chlorine;
     private Float phosphorus;
@@ -37,16 +35,17 @@ public class SurveillanceResource {
     private Float serumFerritin;
     private Float transferrinSaturation;
     private Float transferrin;
-    private Float elisa;
-    private Float vdrlAndRpr;
-    private Float hepatitisBAntigen;
-    private Float hepatitisBAntibody;
-    private Float hepatitisCAntibody;
+    private Boolean elisa;
+    private Boolean vdrlAndRpr;
+    private Boolean hepatitisBAntigen;
+    private Boolean hepatitisBAntibody;
+    private Boolean hepatitisCAntibody;
     private Float ktv;
 
     // Shared
     private Float bloodUrea; // este es el postUrea
     private Float serumCreatinine; // este es creatinina
+    private Float packedCellVolume; // hematocritos en front
     private Float hemoglobin;
     private Float sodium;
     private Float potassium;
@@ -56,16 +55,15 @@ public class SurveillanceResource {
     private Float bloodPressure;
     private Float specificGravity;
     private Float sugar;
-    private Integer redBloodCells;
-    private Integer pusCells;
-    private Integer pusCellClumps;
-    private Integer bacteria;
+    private Boolean redBloodCells;
+    private Boolean pusCells;
+    private Boolean pusCellClumps;
+    private Boolean bacteria;
     private Float bloodGlucoseRandom;
-    private Float packedCellVolume;
     private Float whiteBloodCellCount;
     private Float redBloodCellCount;
-    private Integer appetite;
-    private Integer pedalEdema;
+    private Boolean appetite;
+    private Boolean pedalEdema;
 
     // Legacy
     private Integer planCalories;
