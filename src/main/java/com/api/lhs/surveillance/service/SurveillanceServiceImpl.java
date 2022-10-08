@@ -45,8 +45,14 @@ public class SurveillanceServiceImpl implements SurveillanceService {
 
         Patient p = patient.get();
         request.setPatient(patient.get());
-        request.setImc(request.getInitWeight() / Float.parseFloat(p.getHeight()) * Float.parseFloat(p.getHeight()));
-
+        if(p.getHeight() != null && request.getFinalWeight() != null){
+            try {
+                Float height = Float.parseFloat(p.getHeight());
+                request.setImc(request.getFinalWeight() / (height * height));
+            } catch (NumberFormatException ex) {
+                return surveillanceRepository.save(request);
+            }
+        }
         return surveillanceRepository.save(request);
     }
 
