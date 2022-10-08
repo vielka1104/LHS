@@ -1,5 +1,6 @@
 package com.api.lhs.surveillance.service;
 
+import com.api.lhs.patient.domain.entity.Patient;
 import com.api.lhs.patient.domain.persistence.PatientRepository;
 import com.api.lhs.shared.exception.ResourceNotFoundException;
 import com.api.lhs.surveillance.domain.entity.Surveillance;
@@ -42,7 +43,9 @@ public class SurveillanceServiceImpl implements SurveillanceService {
         if(patient.isEmpty())
             throw new ResourceNotFoundException(ENTITY2, patientId);
 
+        Patient p = patient.get();
         request.setPatient(patient.get());
+        request.setImc(request.getInitWeight() / Float.parseFloat(p.getHeight()) * Float.parseFloat(p.getHeight()));
 
         return surveillanceRepository.save(request);
     }
