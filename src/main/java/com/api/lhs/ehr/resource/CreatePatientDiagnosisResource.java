@@ -9,8 +9,4 @@ import java.util.Date;
 @Getter
 @Setter
 public class CreatePatientDiagnosisResource {
-    @NotNull
-    private Date startDate;
-
-    private Date endDate;
 }

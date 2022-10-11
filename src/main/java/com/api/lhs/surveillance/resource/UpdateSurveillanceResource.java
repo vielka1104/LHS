@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class UpdateSurveillanceResource {
     // Calculate ktv
-    @NotNull
     private Float initWeight;
     private Float finalWeight;
     private Float hdTime;
@@ -17,11 +16,9 @@ public class UpdateSurveillanceResource {
 
     // Clinic
     private Float ureaPre;
-    private Float serumElectrolytes;
     private Float chlorine;
     private Float phosphorus;
     private Float serumCalcium;
-    private Float proteinElectrophoresis;
     private Float alkalinePhosphatase;
     private Float tgo;
     private Float tgp;
@@ -59,7 +56,6 @@ public class UpdateSurveillanceResource {
     private Float whiteBloodCellCount;
     private Float redBloodCellCount;
     private Boolean appetite;
-    private Boolean pedalEdema;
 
     // Legacy
     private Integer planCalories;

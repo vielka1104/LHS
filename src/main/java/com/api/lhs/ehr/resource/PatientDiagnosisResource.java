@@ -10,8 +10,6 @@ import java.util.Date;
 @Setter
 public class PatientDiagnosisResource {
     private Long id;
-    private Date startDate;
-    private Date endDate;
     private PatientResource patient;
     private DiagnosisResource diagnosis;
 }

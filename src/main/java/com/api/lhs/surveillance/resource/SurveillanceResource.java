@@ -13,7 +13,6 @@ public class SurveillanceResource {
     private Long id;
     private PatientResource patient;
     // Calculate ktv
-    @NotNull
     private Float initWeight;
     private Float finalWeight;
     private Float hdTime;
@@ -21,11 +20,9 @@ public class SurveillanceResource {
 
     // Clinic
     private Float ureaPre;
-    private Float serumElectrolytes;
     private Float chlorine;
     private Float phosphorus;
     private Float serumCalcium;
-    private Float proteinElectrophoresis;
     private Float alkalinePhosphatase;
     private Float tgo;
     private Float tgp;
@@ -63,7 +60,6 @@ public class SurveillanceResource {
     private Float whiteBloodCellCount;
     private Float redBloodCellCount;
     private Boolean appetite;
-    private Boolean pedalEdema;
 
     // Legacy
     private Integer planCalories;

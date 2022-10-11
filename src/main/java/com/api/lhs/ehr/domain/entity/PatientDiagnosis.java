@@ -21,11 +21,6 @@ public class PatientDiagnosis extends AuditModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    private Date startDate;
-
-    private Date endDate;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

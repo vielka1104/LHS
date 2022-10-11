@@ -44,6 +44,10 @@ public class MedicalCareServiceImpl implements MedicalCareService {
             throw new ResourceNotFoundException(ENTITY2, patientId);
 
         request.setPatient(patient.get());
+        Float postDivpre = request.getUreaPost()/request.getUreaPre();
+        Double ktv = +(-1) * (Math.log((postDivpre)-(0.008*request.getHdTime()))) + (4-(3.5*postDivpre)) * (request.getUf()/request.getUreaPre());
+        Float ktvFloat = ktv.floatValue();
+        request.setKtv(ktvFloat);
 
         return medicalCareRepository.save(request);
     }

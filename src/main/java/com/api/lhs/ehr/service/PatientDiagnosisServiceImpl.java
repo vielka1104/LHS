@@ -67,10 +67,8 @@ public class PatientDiagnosisServiceImpl implements PatientDiagnosisService {
     @Override
     public PatientDiagnosis update(Long patientDiagnosisId, PatientDiagnosis request) {
         return patientDiagnosisRepository.findById(patientDiagnosisId)
-                .map(patientDiagnosis -> patientDiagnosisRepository.save(
-                        patientDiagnosis.withStartDate(request.getStartDate())
-                                .withEndDate(request.getEndDate())
-                )).orElseThrow(()-> new ResourceNotFoundException(ENTITY, patientDiagnosisId));
+                .map(patientDiagnosis -> patientDiagnosisRepository.save(request))
+                .orElseThrow(()-> new ResourceNotFoundException(ENTITY, patientDiagnosisId));
     }
 
     @Override
