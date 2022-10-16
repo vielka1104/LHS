@@ -67,6 +67,14 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
+    public Appointment rate(Long appointmentId, Integer rating) {
+        return appointmentRepository.findById(appointmentId)
+                .map(appointment -> appointmentRepository.save(
+                        appointment.withRating(rating)
+                )).orElseThrow(() -> new ResourceNotFoundException(ENTITY, appointmentId));
+    }
+
+    @Override
     public Appointment delete(Long appointmentId) {
         return appointmentRepository.findById(appointmentId)
                 .map(appointment -> {

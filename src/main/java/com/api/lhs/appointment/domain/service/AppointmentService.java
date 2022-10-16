@@ -10,6 +10,7 @@ public interface AppointmentService {
     Appointment getById(Long appointmentId);
     Appointment create(Appointment appointment, Long patientId, Long doctorId);
     Appointment update(Long appointmentId, Appointment appointment);
+    Appointment rate(Long appointmentId, Integer rating);
     Appointment delete(Long appointmentId);
     List<Appointment> getByPatientId(Long patientId);
     List<Appointment> getByDoctorId(Long doctorId);

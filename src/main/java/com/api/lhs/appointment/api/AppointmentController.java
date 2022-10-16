@@ -73,6 +73,12 @@ public class AppointmentController {
         return appointmentMapper.toResource(appointmentService.update(appointmentId, appointmentMapper.toModel(model)));
     }
 
+    @Operation(summary = "Update Appointment Rating", description = "Update Appointment Rating")
+    @PutMapping("appointments/{appointmentId}/rating/{rating}")
+    public AppointmentResource updateAppointment(@PathVariable Long appointmentId, @PathVariable Integer rating){
+        return appointmentMapper.toResource(appointmentService.rate(appointmentId, rating));
+    }
+
     @Operation(summary = "Delete Appointment", description = "Delete Appointment")
     @DeleteMapping("appointments/{appointmentId}")
     public void deleteAppointment(@PathVariable Long appointmentId){
