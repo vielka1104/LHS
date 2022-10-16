@@ -30,6 +30,8 @@ public class Appointment extends AuditModel {
     @NotNull
     private Date scheduledAt;
 
+    private Integer rating;
+
     @Enumerated(EnumType.ORDINAL)
     private Status status;
 

@@ -14,6 +14,7 @@ public class AppointmentResource {
     private Long id;
     private String notes;
     private Date scheduledAt;
+    private Integer rating;
     private Status status;
     private PatientResource patient;
     private DoctorResource doctor;

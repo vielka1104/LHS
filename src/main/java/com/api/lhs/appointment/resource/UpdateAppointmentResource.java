@@ -20,6 +20,8 @@ public class UpdateAppointmentResource {
     @NotNull
     private Date scheduledAt;
 
+    private Integer rating;
+
     @Enumerated(EnumType.ORDINAL)
     private Status status;
 }

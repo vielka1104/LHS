@@ -49,6 +49,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         if(doctor.isEmpty())
             throw new ResourceNotFoundException(ENTITY3, doctorId);
 
+        request.setRating(0);
         request.setPatient(patient.get());
         request.setDoctor(doctor.get());
 
@@ -61,6 +62,7 @@ public class AppointmentServiceImpl implements AppointmentService {
                 .map(appointment -> appointmentRepository.save(
                         appointment.withNotes(request.getNotes())
                                 .withStatus(request.getStatus())
+                                .withRating(request.getRating())
                 )).orElseThrow(() -> new ResourceNotFoundException(ENTITY, appointmentId));
     }
 
