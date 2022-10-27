@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @With
 @Entity
-@Table(name = "prediction", uniqueConstraints = {@UniqueConstraint(columnNames = {"patient_id"})})
+@Table(name = "prediction")
 public class Prediction extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
